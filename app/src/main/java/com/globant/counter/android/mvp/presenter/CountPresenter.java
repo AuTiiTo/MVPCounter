@@ -28,4 +28,9 @@ public class CountPresenter {
         model.reset();
         view.setCount(String.valueOf(model.getCount()));
     }
+
+    @Subscribe
+    public void onCalculateButtonPressed(CalculatorButtonPressedEvent event) {
+        view.openCalculator();
+    }
 }

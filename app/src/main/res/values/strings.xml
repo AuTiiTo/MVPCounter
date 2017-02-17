@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">Android</string>
+    <string name="app_name">Android Training</string>
+    <string name="error_char">Caracter inválido</string>
+    <string name="error_empty">ingrese una operación valida</string>
+    <string name="calculator_intro">Se deben ingresar 2 valores y un operador para generar la operación.\nSe muestra el resultado al ingresar
+        \'=\'\nLongClick sobre la operación para borrarla</string>
+    <string name="calculator_example">Ej: 1 + 2 = , se debe ingresar, 1 (uno), luego el operador de suma (+), luego el número 2 (dos) y
+        por último el igual (=) para obtener el resultado</string>
+    <string name="calculator_result">Resultado</string>
+    <string name="calculator_values">Ingrese la operación</string>
+    <string name="calculator_description">Las posibles operaciones
+        son:\n\tSuma (+)\n\tResta (-)\n\tMultiplicación (*)\n\tDivisión (/)</string>
 </resources>
