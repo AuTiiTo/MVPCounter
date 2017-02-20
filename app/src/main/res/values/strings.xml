@@ -2,6 +2,7 @@
     <string name="app_name">Android Training</string>
     <string name="error_char">Caracter inválido</string>
     <string name="error_empty">ingrese una operación valida</string>
+    <string name="error_divition">No se puede dividir por 0</string>
     <string name="calculator_intro">Se deben ingresar 2 valores y un operador para generar la operación.\nSe muestra el resultado al ingresar
         \'=\'\nLongClick sobre la operación para borrarla</string>
     <string name="calculator_example">Ej: 1 + 2 = , se debe ingresar, 1 (uno), luego el operador de suma (+), luego el número 2 (dos) y
@@ -10,4 +11,7 @@
     <string name="calculator_values">Ingrese la operación</string>
     <string name="calculator_description">Las posibles operaciones
         son:\n\tSuma (+)\n\tResta (-)\n\tMultiplicación (*)\n\tDivisión (/)</string>
+    <string name="count_result">0</string>
+    <string name="count_btt_inc">inc</string>
+    <string name="count_btt_reset">reset</string>
 </resources>

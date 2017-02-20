@@ -2,15 +2,13 @@ package com.globant.counter.android.mvp.view;
 
 
 import android.app.Activity;
-import android.content.Intent;
 import android.widget.TextView;
 
 import com.globant.counter.android.R;
-import com.globant.counter.android.ui.CalculateActivity;
 import com.squareup.otto.Bus;
 
-import butterknife.ButterKnife;
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class CountView extends ActivityView {
@@ -27,11 +25,6 @@ public class CountView extends ActivityView {
 
     public void setCount(String count) {
         countLabel.setText(count);
-    }
-
-    public void openCalculator() {
-        Intent intentCalculator = new Intent(super.getContext(), CalculateActivity.class);
-        super.getActivity().startActivity(intentCalculator);
     }
 
     @OnClick(R.id.count_button)

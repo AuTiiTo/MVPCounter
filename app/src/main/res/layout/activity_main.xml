@@ -12,7 +12,7 @@
         android:textSize="40sp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="0"/>
+        android:text="@string/count_result"/>
 
     <Button
         android:id="@+id/count_button"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/count_label"
         android:layout_centerHorizontal="true"
-        android:text="inc"/>
+        android:text="@string/count_btt_inc"/>
 
     <Button
         android:id="@+id/reset_button"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/count_button"
         android:layout_centerHorizontal="true"
-        android:text="reset"/>
+        android:text="@string/count_btt_reset"/>
 
     <Button
         android:text="calculate"

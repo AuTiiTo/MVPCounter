@@ -1,7 +1,10 @@
 package com.globant.counter.android.mvp.presenter;
 
+import android.content.Intent;
+
 import com.globant.counter.android.mvp.model.CountModel;
 import com.globant.counter.android.mvp.view.CountView;
+import com.globant.counter.android.ui.CalculateActivity;
 import com.squareup.otto.Subscribe;
 
 import static com.globant.counter.android.mvp.view.CountView.*;
@@ -31,6 +34,7 @@ public class CountPresenter {
 
     @Subscribe
     public void onCalculateButtonPressed(CalculatorButtonPressedEvent event) {
-        view.openCalculator();
+        Intent intentCalculator = new Intent(view.getContext(), CalculateActivity.class);
+        view.getActivity().startActivity(intentCalculator);
     }
 }
