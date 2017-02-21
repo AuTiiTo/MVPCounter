@@ -31,7 +31,7 @@ public class CalculateModel {
             case CALCULATE_MULTIPLICATION:
                 return first * second;
             default:
-                return first/second;
+                return first / second;
         }
     }
 

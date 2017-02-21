@@ -22,14 +22,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        BusProvider.register(presenter);
-    }
-
-    @Override
     protected void onPause() {
         super.onPause();
         BusProvider.unregister(presenter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        BusProvider.register(presenter);
     }
 }

@@ -21,12 +21,11 @@ import butterknife.OnLongClick;
 public class CalculateView extends ActivityView {
 
     private final Bus bus;
-    private TextWatcher textWatcher;
-
     @BindView(R.id.values)
     EditText valuesToOperate;
     @BindView(R.id.result)
     TextView result;
+    private TextWatcher textWatcher;
     private CharSequence lastInput;
 
     public CalculateView(Activity activity, Bus bus) {
@@ -68,31 +67,18 @@ public class CalculateView extends ActivityView {
         Toast.makeText(CalculateView.super.getContext(), errorMessage, Toast.LENGTH_SHORT).show();
     }
 
-//    @OnTextChanged(value = R.id.values, callback = OnTextChanged.Callback.TEXT_CHANGED)
-//    void valuesChanged(CharSequence charSequence, int last, int i1, int i2) {
-//        lastInput = charSequence;
-//        bus.post(new OnInputEvent());
-//    }
-//    @OnTextChanged(value = R.id.values, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
-//    void afterValues(Editable editable) {
-//        if (editable.toString().contains("/0=")) {
-//            showErrorMessage(CalculateView.super.getContext().getString(R.string.error_divition));
-//            showErrorMessage(CalculateView.super.getContext().getString(R.string.error_empty));
-//        }else if (editable.toString().contains("=")) {
-//            bus.post(new OnOperationEvent());
-//        }
-//    }
-//
     @OnLongClick(R.id.values)
     boolean onValuesLongClick() {
         setTextWithoutInvokeListener("");
         return true;
     }
+
     private void addEditListeners() {
         textWatcher = new TextWatcher() {
 
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int length, int i1, int i2) {}
+            public void beforeTextChanged(CharSequence charSequence, int length, int i1, int i2) {
+            }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int last, int i1, int i2) {
@@ -103,22 +89,16 @@ public class CalculateView extends ActivityView {
             @Override
             public void afterTextChanged(Editable editable) {
                 bus.post(new OnOperationEvent());
-
-                // if (editable.toString().contains("/0=")) {
-//                                showErrorMessage(CalculateView.super.getContext().getString(R.string.error_divition));
-//                    showErrorMessage(CalculateView.super.getContext().getString(R.string.error_empty));
-//                } else if (editable.toString().contains("=")) {
-//                    bus.post(new OnOperationEvent());
-//                }
             }
         };
 
         valuesToOperate.addTextChangedListener(textWatcher);
     }
 
-//    Events
+    //    Events
     public static class OnOperationEvent {
     }
+
     public static class OnInputEvent {
     }
 }

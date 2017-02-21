@@ -13,7 +13,7 @@ import com.globant.counter.android.utils.BusProvider;
  * @author s.ruiz
  */
 
-public class CalculateActivity extends AppCompatActivity{
+public class CalculateActivity extends AppCompatActivity {
     private CalculatePresenter presenter;
 
     @Override
@@ -24,14 +24,14 @@ public class CalculateActivity extends AppCompatActivity{
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        BusProvider.register(presenter);
-    }
-
-    @Override
     protected void onPause() {
         super.onPause();
         BusProvider.unregister(presenter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        BusProvider.register(presenter);
     }
 }
