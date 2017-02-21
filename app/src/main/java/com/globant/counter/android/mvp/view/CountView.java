@@ -15,7 +15,8 @@ public class CountView extends ActivityView {
 
     private final Bus bus;
 
-    @BindView(R.id.count_label) TextView countLabel;
+    @BindView(R.id.count_label)
+    TextView countLabel;
 
     public CountView(Activity activity, Bus bus) {
         super(activity);
@@ -37,11 +38,21 @@ public class CountView extends ActivityView {
         bus.post(new ResetButtonPressedEvent());
     }
 
+    @OnClick(R.id.calculator_button)
+    public void calculatorButtonPressed() {
+        bus.post(new CalculatorButtonPressedEvent());
+    }
+
+
     public static class CountButtonPressedEvent {
         // nothing to do.
     }
 
     public static class ResetButtonPressedEvent {
         // nothing to do.
+    }
+
+    public static class CalculatorButtonPressedEvent {
+        // do nothing
     }
 }

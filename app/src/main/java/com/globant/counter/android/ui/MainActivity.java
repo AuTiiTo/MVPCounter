@@ -1,8 +1,9 @@
-package com.globant.counter.android;
+package com.globant.counter.android.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.globant.counter.android.R;
 import com.globant.counter.android.mvp.model.CountModel;
 import com.globant.counter.android.mvp.presenter.CountPresenter;
 import com.globant.counter.android.mvp.view.CountView;
@@ -21,14 +22,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        BusProvider.register(presenter);
-    }
-
-    @Override
     protected void onPause() {
         super.onPause();
         BusProvider.unregister(presenter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        BusProvider.register(presenter);
     }
 }
