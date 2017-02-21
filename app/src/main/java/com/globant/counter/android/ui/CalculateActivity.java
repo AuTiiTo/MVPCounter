@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.globant.counter.android.R;
-import com.globant.counter.android.mvp.model.CalculateModel;
-import com.globant.counter.android.mvp.presenter.CalculatePresenter;
-import com.globant.counter.android.mvp.view.CalculateView;
+import com.globant.counter.android.mvp.module.two.model.CalculateModel;
+import com.globant.counter.android.mvp.module.two.presenter.CalculatePresenter;
+import com.globant.counter.android.mvp.module.two.view.CalculateView;
 import com.globant.counter.android.utils.BusProvider;
 
 /**

@@ -1,4 +1,4 @@
-package com.globant.counter.android.mvp.model;
+package com.globant.counter.android.mvp.module.two.model;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

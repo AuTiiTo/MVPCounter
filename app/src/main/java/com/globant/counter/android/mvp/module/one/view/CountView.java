@@ -1,10 +1,11 @@
-package com.globant.counter.android.mvp.view;
+package com.globant.counter.android.mvp.module.one.view;
 
 
 import android.app.Activity;
 import android.widget.TextView;
 
 import com.globant.counter.android.R;
+import com.globant.counter.android.ui.view.ActivityView;
 import com.squareup.otto.Bus;
 
 import butterknife.BindView;

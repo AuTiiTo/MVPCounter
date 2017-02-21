@@ -1,7 +1,8 @@
 package com.globant.counter.android.mvp.presenter;
 
-import com.globant.counter.android.mvp.model.CountModel;
-import com.globant.counter.android.mvp.view.CountView;
+import com.globant.counter.android.mvp.module.one.model.CountModel;
+import com.globant.counter.android.mvp.module.one.presenter.CountPresenter;
+import com.globant.counter.android.mvp.module.one.view.CountView;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +27,7 @@ public class CountPresenterTest {
 
     @Before
     public void setup() {
-        model = new CountModel();
+        model = mock(CountModel.class);
         view = mock(CountView.class);
         presenter = new CountPresenter(model, view);
     }

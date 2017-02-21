@@ -1,7 +1,8 @@
 package com.globant.counter.android.mvp.presenter;
 
-import com.globant.counter.android.mvp.model.CalculateModel;
-import com.globant.counter.android.mvp.view.CalculateView;
+import com.globant.counter.android.mvp.module.two.model.CalculateModel;
+import com.globant.counter.android.mvp.module.two.presenter.CalculatePresenter;
+import com.globant.counter.android.mvp.module.two.view.CalculateView;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -20,13 +21,13 @@ public class CalculatePresenterTest {
 
     @Before
     public void setup() {
-        model = new CalculateModel();
+        model = mock(CalculateModel.class);
         view = mock(CalculateView.class);
         presenter = new CalculatePresenter(view, model);
     }
 
     @Test
-    public void operationValid() throws Exception {
+    public void onOperation() throws Exception {
         Mockito.when(view.getValues()).thenReturn("2+3=");
         presenter.onOperation(new CalculateView.OnOperationEvent());
     }

@@ -1,4 +1,4 @@
-package com.globant.counter.android.mvp.view;
+package com.globant.counter.android.mvp.module.two.view;
 
 import android.app.Activity;
 import android.text.Editable;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.globant.counter.android.R;
+import com.globant.counter.android.ui.view.ActivityView;
 import com.squareup.otto.Bus;
 
 import butterknife.BindView;

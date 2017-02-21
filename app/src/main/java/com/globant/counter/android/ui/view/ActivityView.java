@@ -1,4 +1,4 @@
-package com.globant.counter.android.mvp.view;
+package com.globant.counter.android.ui.view;
 
 import android.app.Activity;
 import android.app.FragmentManager;

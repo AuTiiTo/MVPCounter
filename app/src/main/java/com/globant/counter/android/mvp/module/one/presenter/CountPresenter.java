@@ -1,15 +1,15 @@
-package com.globant.counter.android.mvp.presenter;
+package com.globant.counter.android.mvp.module.one.presenter;
 
 import android.content.Intent;
 
-import com.globant.counter.android.mvp.model.CountModel;
-import com.globant.counter.android.mvp.view.CountView;
+import com.globant.counter.android.mvp.module.one.model.CountModel;
+import com.globant.counter.android.mvp.module.one.view.CountView;
 import com.globant.counter.android.ui.CalculateActivity;
 import com.squareup.otto.Subscribe;
 
-import static com.globant.counter.android.mvp.view.CountView.CalculatorButtonPressedEvent;
-import static com.globant.counter.android.mvp.view.CountView.CountButtonPressedEvent;
-import static com.globant.counter.android.mvp.view.CountView.ResetButtonPressedEvent;
+import static com.globant.counter.android.mvp.module.one.view.CountView.CalculatorButtonPressedEvent;
+import static com.globant.counter.android.mvp.module.one.view.CountView.CountButtonPressedEvent;
+import static com.globant.counter.android.mvp.module.one.view.CountView.ResetButtonPressedEvent;
 
 public class CountPresenter {
 

@@ -1,4 +1,4 @@
-package com.globant.counter.android.mvp.model;
+package com.globant.counter.android.mvp.module.one.model;
 
 public class CountModel {
 
