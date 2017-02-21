@@ -18,7 +18,7 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class PresenterTest {
+public class CountPresenterTest {
 
     private CountPresenter presenter;
     private CountModel model;

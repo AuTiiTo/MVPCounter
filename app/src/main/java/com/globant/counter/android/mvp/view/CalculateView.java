@@ -3,7 +3,6 @@ package com.globant.counter.android.mvp.view;
 import android.app.Activity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,6 +12,7 @@ import com.squareup.otto.Bus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnLongClick;
 
 /**
  * @author s.ruiz
@@ -61,12 +61,33 @@ public class CalculateView extends ActivityView {
         valuesToOperate.setText(charSequence);
         valuesToOperate.setSelection(charSequence.length());
         valuesToOperate.addTextChangedListener(textWatcher);
+
     }
 
     public void showErrorMessage(String errorMessage) {
         Toast.makeText(CalculateView.super.getContext(), errorMessage, Toast.LENGTH_SHORT).show();
     }
 
+//    @OnTextChanged(value = R.id.values, callback = OnTextChanged.Callback.TEXT_CHANGED)
+//    void valuesChanged(CharSequence charSequence, int last, int i1, int i2) {
+//        lastInput = charSequence;
+//        bus.post(new OnInputEvent());
+//    }
+//    @OnTextChanged(value = R.id.values, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
+//    void afterValues(Editable editable) {
+//        if (editable.toString().contains("/0=")) {
+//            showErrorMessage(CalculateView.super.getContext().getString(R.string.error_divition));
+//            showErrorMessage(CalculateView.super.getContext().getString(R.string.error_empty));
+//        }else if (editable.toString().contains("=")) {
+//            bus.post(new OnOperationEvent());
+//        }
+//    }
+//
+    @OnLongClick(R.id.values)
+    boolean onValuesLongClick() {
+        setTextWithoutInvokeListener("");
+        return true;
+    }
     private void addEditListeners() {
         textWatcher = new TextWatcher() {
 
@@ -81,27 +102,22 @@ public class CalculateView extends ActivityView {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (editable.toString().contains("/0=")) {
-                    showErrorMessage(CalculateView.super.getContext().getString(R.string.error_divition));
-                    showErrorMessage(CalculateView.super.getContext().getString(R.string.error_empty));
-                }else if (editable.toString().contains("=")) {
-                    bus.post(new OnEqualPressedEvent());
-                }
+                bus.post(new OnOperationEvent());
+
+                // if (editable.toString().contains("/0=")) {
+//                                showErrorMessage(CalculateView.super.getContext().getString(R.string.error_divition));
+//                    showErrorMessage(CalculateView.super.getContext().getString(R.string.error_empty));
+//                } else if (editable.toString().contains("=")) {
+//                    bus.post(new OnOperationEvent());
+//                }
             }
         };
 
         valuesToOperate.addTextChangedListener(textWatcher);
-        valuesToOperate.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                setTextWithoutInvokeListener("");
-                return true;
-            }
-        });
     }
 
 //    Events
-    public static class OnEqualPressedEvent {
+    public static class OnOperationEvent {
     }
     public static class OnInputEvent {
     }

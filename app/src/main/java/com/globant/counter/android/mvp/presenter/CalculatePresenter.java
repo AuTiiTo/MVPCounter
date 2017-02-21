@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import com.globant.counter.android.R;
 import com.globant.counter.android.mvp.model.CalculateModel;
 import com.globant.counter.android.mvp.view.CalculateView;
-import com.globant.counter.android.mvp.view.CalculateView.OnEqualPressedEvent;
+import com.globant.counter.android.mvp.view.CalculateView.OnOperationEvent;
 import com.squareup.otto.Subscribe;
 
 /**
@@ -24,9 +24,15 @@ public class CalculatePresenter {
     }
 
     @Subscribe
-    public void onEqualPressed(OnEqualPressedEvent event) {
+    public void onOperation(OnOperationEvent event) {
         String value = view.getValues();
-        view.setResult(model.getResult(value, view.getLastResult()));
+
+        if (model.isInvalidOp(value)) {
+            view.showErrorMessage(view.getContext().getString(R.string.error_divition));
+            view.showErrorMessage(view.getContext().getString(R.string.error_empty));
+        } else if (model.isWellFormedOp(value)) {
+            view.setResult(model.getResult(value, view.getLastResult()));
+        }
     }
 
     @Subscribe

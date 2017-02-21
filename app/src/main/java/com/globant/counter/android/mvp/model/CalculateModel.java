@@ -12,6 +12,12 @@ public class CalculateModel {
     private static final char CALCULATE_SUM = '+';
     private static final char CALCULATE_SUBSTRACT = '-';
     private static final char CALCULATE_MULTIPLICATION = '*';
+    private static final String FULL_PATTER = "(\\p{Digit}+)([+*/-]{1})(\\p{Digit}+)[=]{1}";
+    private static final String UNARY_PATTER = "([+*/-]{1})(\\p{Digit}+)[=]{1}";
+    private static final String OPERATORS_MATCHER = "[+*/=-]";
+    private static final String NUMBERS_MATCHER = "\\d";
+    private static final String INVALID_OPERATION = "/0=";
+    private static final String WELL_FORMED_OPERATION = "=";
 
     public CalculateModel() {
     }
@@ -30,8 +36,8 @@ public class CalculateModel {
     }
 
     public Double getResult(String value, Double lastResult) {
-        Pattern full = Pattern.compile("(\\p{Digit}+)([+*/-]{1})(\\p{Digit}+)[=]{1}");
-        Pattern unary = Pattern.compile("([+*/-]{1})(\\p{Digit}+)[=]{1}");
+        Pattern full = Pattern.compile(FULL_PATTER);
+        Pattern unary = Pattern.compile(UNARY_PATTER);
         Matcher mFull = full.matcher(value);
         Matcher mUnary = unary.matcher(value);
 
@@ -45,11 +51,19 @@ public class CalculateModel {
     }
 
     public boolean isOperator(String value) {
-        return value.matches("[+*/=-]");
+        return value.matches(OPERATORS_MATCHER);
     }
 
     public boolean isNumber(String value) {
-        String regex = "\\d";
+        String regex = NUMBERS_MATCHER;
         return value.matches(regex);
+    }
+
+    public boolean isInvalidOp(String value) {
+        return value.contains(INVALID_OPERATION);
+    }
+
+    public boolean isWellFormedOp(String value) {
+        return value.contains(WELL_FORMED_OPERATION);
     }
 }
