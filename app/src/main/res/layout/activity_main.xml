@@ -37,4 +37,12 @@
         android:layout_alignParentBottom="true"
         android:text="@string/calculate"/>
 
+    <Button
+        android:id="@+id/splash_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/calculator_button"
+        android:text="@string/splash"/>
+
 </RelativeLayout>

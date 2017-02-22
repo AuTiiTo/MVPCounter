@@ -1,15 +1,17 @@
-package com.globant.counter.android.mvp.module.one.presenter;
+package com.globant.counter.android.mvp.one.presenter;
 
 import android.content.Intent;
 
-import com.globant.counter.android.mvp.module.one.model.CountModel;
-import com.globant.counter.android.mvp.module.one.view.CountView;
+import com.globant.counter.android.mvp.one.model.CountModel;
+import com.globant.counter.android.mvp.one.view.CountView;
 import com.globant.counter.android.ui.CalculateActivity;
+import com.globant.counter.android.ui.SplashActivity;
 import com.squareup.otto.Subscribe;
 
-import static com.globant.counter.android.mvp.module.one.view.CountView.CalculatorButtonPressedEvent;
-import static com.globant.counter.android.mvp.module.one.view.CountView.CountButtonPressedEvent;
-import static com.globant.counter.android.mvp.module.one.view.CountView.ResetButtonPressedEvent;
+import static com.globant.counter.android.mvp.one.view.CountView.SplashButtonPressedEvent;
+import static com.globant.counter.android.mvp.one.view.CountView.CalculatorButtonPressedEvent;
+import static com.globant.counter.android.mvp.one.view.CountView.CountButtonPressedEvent;
+import static com.globant.counter.android.mvp.one.view.CountView.ResetButtonPressedEvent;
 
 public class CountPresenter {
 
@@ -37,5 +39,11 @@ public class CountPresenter {
     public void onCalculateButtonPressed(CalculatorButtonPressedEvent event) {
         Intent intentCalculator = new Intent(view.getContext(), CalculateActivity.class);
         view.getActivity().startActivity(intentCalculator);
+    }
+
+    @Subscribe
+    public void onSplashButtonPressed(SplashButtonPressedEvent event) {
+        Intent intentSplash = new Intent(view.getContext(), SplashActivity.class);
+        view.getActivity().startActivity(intentSplash);
     }
 }

@@ -4,23 +4,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.globant.counter.android.R;
-import com.globant.counter.android.mvp.two.model.CalculateModel;
-import com.globant.counter.android.mvp.two.presenter.CalculatePresenter;
-import com.globant.counter.android.mvp.two.view.CalculateView;
+import com.globant.counter.android.mvp.three.presenter.SplashPresenter;
+import com.globant.counter.android.mvp.three.view.SplashView;
 import com.globant.counter.android.utils.BusProvider;
 
-/**
- * @author s.ruiz
- */
-
-public class CalculateActivity extends AppCompatActivity {
-    private CalculatePresenter presenter;
+public class SplashActivity extends AppCompatActivity {
+    private SplashPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calculate);
-        presenter = new CalculatePresenter(new CalculateView(this, BusProvider.getInstance()), new CalculateModel());
+        setContentView(R.layout.activity_splash);
+        presenter = new SplashPresenter(new SplashView(this, BusProvider.getInstance()));
     }
 
     @Override

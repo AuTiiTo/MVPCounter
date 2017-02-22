@@ -1,4 +1,4 @@
-package com.globant.counter.android.mvp.module.two.view;
+package com.globant.counter.android.mvp.two.view;
 
 import android.app.Activity;
 import android.text.Editable;
@@ -22,12 +22,13 @@ import butterknife.OnLongClick;
 public class CalculateView extends ActivityView {
 
     private final Bus bus;
+    private TextWatcher textWatcher;
+    private CharSequence lastInput;
+
     @BindView(R.id.values)
     EditText valuesToOperate;
     @BindView(R.id.result)
     TextView result;
-    private TextWatcher textWatcher;
-    private CharSequence lastInput;
 
     public CalculateView(Activity activity, Bus bus) {
         super(activity);

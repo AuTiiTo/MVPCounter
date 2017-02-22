@@ -1,11 +1,11 @@
-package com.globant.counter.android.mvp.module.two.presenter;
+package com.globant.counter.android.mvp.two.presenter;
 
 import android.support.annotation.NonNull;
 
 import com.globant.counter.android.R;
-import com.globant.counter.android.mvp.module.two.model.CalculateModel;
-import com.globant.counter.android.mvp.module.two.view.CalculateView;
-import com.globant.counter.android.mvp.module.two.view.CalculateView.OnOperationEvent;
+import com.globant.counter.android.mvp.two.model.CalculateModel;
+import com.globant.counter.android.mvp.two.view.CalculateView;
+import com.globant.counter.android.mvp.two.view.CalculateView.OnOperationEvent;
 import com.squareup.otto.Subscribe;
 
 /**

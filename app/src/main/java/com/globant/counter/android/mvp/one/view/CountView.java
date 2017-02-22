@@ -1,4 +1,4 @@
-package com.globant.counter.android.mvp.module.one.view;
+package com.globant.counter.android.mvp.one.view;
 
 
 import android.app.Activity;
@@ -44,6 +44,9 @@ public class CountView extends ActivityView {
         bus.post(new CalculatorButtonPressedEvent());
     }
 
+    @OnClick(R.id.splash_button)
+    public void splashButtonPressed() {bus.post(new SplashButtonPressedEvent());}
+
 
     public static class CountButtonPressedEvent {
         // nothing to do.
@@ -54,6 +57,10 @@ public class CountView extends ActivityView {
     }
 
     public static class CalculatorButtonPressedEvent {
+        // do nothing
+    }
+
+    public static class SplashButtonPressedEvent {
         // do nothing
     }
 }

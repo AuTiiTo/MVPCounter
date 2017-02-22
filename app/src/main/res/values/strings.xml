@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Android Training</string>
+    <string name="title_activity_calculate">Calculate Activity</string>
+    <string name="title_activity_splash">Splash Activity</string>
     <string name="error_char">Caracter inválido</string>
     <string name="error_empty">ingrese una operación valida</string>
     <string name="error_divition">No se puede dividir por 0</string>
@@ -15,4 +17,5 @@
     <string name="count_btt_inc">inc</string>
     <string name="count_btt_reset">reset</string>
     <string name="calculate">calculate</string>
+    <string name="splash">Splash</string>
 </resources>

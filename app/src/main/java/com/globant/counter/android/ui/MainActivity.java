@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.globant.counter.android.R;
-import com.globant.counter.android.mvp.module.one.model.CountModel;
-import com.globant.counter.android.mvp.module.one.presenter.CountPresenter;
-import com.globant.counter.android.mvp.module.one.view.CountView;
+import com.globant.counter.android.mvp.one.model.CountModel;
+import com.globant.counter.android.mvp.one.presenter.CountPresenter;
+import com.globant.counter.android.mvp.one.view.CountView;
 import com.globant.counter.android.utils.BusProvider;
 
 

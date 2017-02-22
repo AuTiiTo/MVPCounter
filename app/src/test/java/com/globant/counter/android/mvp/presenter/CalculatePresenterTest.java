@@ -1,8 +1,8 @@
 package com.globant.counter.android.mvp.presenter;
 
-import com.globant.counter.android.mvp.module.two.model.CalculateModel;
-import com.globant.counter.android.mvp.module.two.presenter.CalculatePresenter;
-import com.globant.counter.android.mvp.module.two.view.CalculateView;
+import com.globant.counter.android.mvp.two.model.CalculateModel;
+import com.globant.counter.android.mvp.two.presenter.CalculatePresenter;
+import com.globant.counter.android.mvp.two.view.CalculateView;
 
 import org.junit.Before;
 import org.junit.Test;
