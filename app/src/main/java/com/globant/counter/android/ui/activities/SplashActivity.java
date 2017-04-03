@@ -1,4 +1,4 @@
-package com.globant.counter.android.ui;
+package com.globant.counter.android.ui.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

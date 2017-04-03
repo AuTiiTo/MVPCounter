@@ -4,8 +4,8 @@ import android.content.Intent;
 
 import com.globant.counter.android.mvp.one.model.CountModel;
 import com.globant.counter.android.mvp.one.view.CountView;
-import com.globant.counter.android.ui.CalculateActivity;
-import com.globant.counter.android.ui.SplashActivity;
+import com.globant.counter.android.ui.activities.CalculateActivity;
+import com.globant.counter.android.ui.activities.SplashActivity;
 import com.squareup.otto.Subscribe;
 
 import static com.globant.counter.android.mvp.one.view.CountView.SplashButtonPressedEvent;
