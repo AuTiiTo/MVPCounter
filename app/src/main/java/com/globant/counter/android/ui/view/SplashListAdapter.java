@@ -1,14 +1,15 @@
 package com.globant.counter.android.ui.view;
 
+import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.globant.counter.android.R;
+import com.globant.counter.android.utils.BusProvider;
 import com.globant.counter.android.utils.SplashObject;
+import com.squareup.otto.Bus;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -17,17 +18,30 @@ import java.util.List;
  * @author s.ruiz
  */
 
-public class SplashListAdapter extends BaseAdapter {
+public class SplashListAdapter extends RecyclerView.Adapter<SplashCardViewHolder> {
     private List<SplashObject> splashItems;
+    private Context mContext;
+    private final Bus eventBus = BusProvider.getInstance();
 
     @Override
-    public int getCount() {
-        return splashItems.size();
+    public SplashCardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        mContext = parent.getContext();
+        View view = LayoutInflater.from(mContext).inflate(R.layout.cardview_splash, null);
+        SplashCardViewHolder viewHolder = new SplashCardViewHolder(view);
+        return viewHolder;
     }
 
     @Override
-    public SplashObject getItem(int position) {
-        return splashItems.get(position);
+    public void onBindViewHolder(SplashCardViewHolder holder, int position) {
+        final SplashObject item = splashItems.get(position);
+        holder.mItemId.setText(String.valueOf(item.getId()));
+        Picasso.with(mContext).load(item.getUrl()).into(holder.mItemImage);
+        holder.mItemImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                eventBus.post(new ItemClickEvent(item.getId()));
+            }
+        });
     }
 
     @Override
@@ -36,34 +50,21 @@ public class SplashListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        SplashCardViewHolder holder;
-        if (convertView == null) {
-            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_splash, null);
-
-            holder = new SplashCardViewHolder();
-            holder.id = (TextView) convertView.findViewById(R.id.splash_item_id);
-            holder.image = (ImageView) convertView.findViewById(R.id.splash_item_image);
-
-            convertView.setTag(holder);
-        } else {
-            holder = (SplashCardViewHolder) convertView.getTag();
-        }
-
-        SplashObject splashObject = getItem(position);
-        if (splashObject != null) {
-            holder.id.setText(String.valueOf(splashObject.getId()));
-            Picasso.with(parent.getContext()).load(splashObject.getUrl()).into(holder.image);
-        }
-        return convertView;
+    public int getItemCount() {
+        return splashItems.size();
     }
 
     public void setSplashItems(List<SplashObject> images) {
         splashItems = images;
     }
 
-    class SplashCardViewHolder {
-        private TextView id;
-        private ImageView image;
+    public static class ItemClickEvent {
+        final int id;
+        public ItemClickEvent(int itemId) {
+            id = itemId;
+        }
+        public int getItemId(){
+            return id;
+        }
     }
 }

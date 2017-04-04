@@ -1,5 +1,7 @@
 package com.globant.counter.android.utils;
 
+import java.io.Serializable;
+
 /**
  * @author s.ruiz
  */
@@ -9,7 +11,7 @@ package com.globant.counter.android.utils;
 // "large_url":"https://splashbase.s3.amazonaws.com/unsplash/large/1bqbiVH",
 // "source_id":64},
 
-public class SplashObject {
+public class SplashObject implements Serializable {
     private int id;
     private String url;
     private String large_url;

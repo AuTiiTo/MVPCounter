@@ -39,8 +39,27 @@ public class SplashModel {
         });
     }
 
+    public void downloadItem(int itemId) {
+        SplashService service = SplashService.retrofit.create(SplashService.class);
+        Call<SplashObject> objectCall = service.itemResponse(itemId);
+        objectCall.enqueue(new Callback<SplashObject>() {
+            @Override
+            public void onResponse(Call<SplashObject> call, Response<SplashObject> response) {
+                SplashObject object = response.body();
+                serviceConsumer.onItemDownload(object);
+            }
+
+            @Override
+            public void onFailure(Call<SplashObject> call, Throwable t) {
+
+            }
+        });
+    }
+
     public interface SplashServiceConsumer {
         void onDownloadFinished(List<SplashObject> images);
+        void onItemDownload(SplashObject image);
         void onFailure(String errorMessage);
+
     }
 }

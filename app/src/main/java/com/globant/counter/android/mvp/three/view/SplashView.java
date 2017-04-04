@@ -1,7 +1,9 @@
 package com.globant.counter.android.mvp.three.view;
 
 import android.app.Activity;
-import android.widget.ListView;
+import android.app.DialogFragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.globant.counter.android.R;
 import com.globant.counter.android.ui.view.ActivityView;
@@ -19,8 +21,8 @@ import butterknife.OnClick;
 public class SplashView extends ActivityView {
     private final Bus bus;
 
-    @BindView(R.id.splash_list_view)
-    ListView mSplashList;
+    @BindView(R.id.splash_recycler_view)
+    RecyclerView mSplashList;
 
     public SplashView(Activity activity, Bus bus) {
         super(activity);
@@ -33,8 +35,12 @@ public class SplashView extends ActivityView {
 
     public void SetAdapterView(SplashListAdapter adapter) {
         mSplashList.setAdapter(adapter);
+        mSplashList.setLayoutManager(new LinearLayoutManager(super.getContext()));
     }
 
-    public static class RefreshButtonPresedEvent {
+    public void showFragmentDialog(DialogFragment f) {
+        f.show(getFragmentManager(), "test");
     }
+
+    public static class RefreshButtonPresedEvent {}
 }
